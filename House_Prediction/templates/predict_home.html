@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Home Page </title>
+    <style> 
+            body {background-image: url('/static/pic/china.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+                  background-color:black;
+                  color:rgb(255, 255, 255);}
+            </style>
+</head>
+
+<form action="prediction" method="POST">                                                                                       
+    <label for="size"> <h1> <pre style="color: rgb(0, 0, 0);">متراژ  </label>  <input required type="number" id="size" name="size" placeholder="بیش از ۵۰"> </pre>    
+    <label for="year"> <pre style="color: rgb(0, 0, 0);">سال ساخت</label> <input required type="number" id="year" name="year" placeholder="بیش از ۱۳۵۰"></pre>
+
+ <p> <pre style="color: rgb(0, 0, 0);" >روفگاردن <select name="roof">      
+    <option value="ندارد"> ندارد </option>
+        <option value="دارد"> دارد </option>       
+    </select> </pre> </p> 
+
+    <p> <pre style="color: rgb(0, 0, 0);" >استخر    <select name="pool">      
+        <option value="ندارد"> ندارد </option>
+        <option value="دارد"> دارد </option>
+    </select> </pre> </p> 
+
+    <p> <pre style="color: rgb(0, 0, 0);" >لابی      <select name="labi">      
+        <option value="ندارد"> ندارد </option>
+        <option value="دارد"> دارد </option>
+    </select> </pre> </p> 
+
+    <p> <pre style="color: rgb(0, 0, 0);" >پارکینگ  <select name="parcking">      
+        <option value="ندارد" selected=''> ندارد </option> 
+        <option value="دارد"> دارد </option>
+        <option value="مشاع"> مشاع </option> 
+    </select> </pre> </p> 
+
+
+      <pre>   <button type="submit" > پیش بینی قیمت </button> </pre>
+    </h1>
+</form>
+
+# if size
+    # if x1
+    <h1 style="color: rgb(255, 230, 0);">  <span> <mark> <u>  قیمت: {{x1}}  میلیارد تومان  </u>  </mark> </h1>
+    # else
+    <h1 style="color: rgb(255, 230, 0);">  <span>  <mark>  <u>   قیمت: {{x2}}  میلیون تومان  </u> </mark>  </h1>
+    # endif
+<h2 style="color: rgb(255, 255, 0);"> متراژ      :  {{size}}     </h2>
+<h2 style="color: rgb(255, 255, 0);">  سال ساخت  :  {{year}}    </h2> 
+<h2 style="color: rgb(255, 255, 0);">  روف گاردن :  {{ROOF}}    </h2> 
+<h2 style="color: rgb(255, 255, 0);" >    استخر   :  {{POOL}}    </h2> 
+<h2 style="color: rgb(255, 255, 0);">    لابی     :    {{LABI}}   </h2>  
+<h2 style="color: rgb(255, 255, 0);">  پارکینگ   :    {{PARCKING}}  </h2>
+# endif
+
+
+# if w 
+<h3> <mark>  {{w}}   </mark>  </h3>
+# endif
